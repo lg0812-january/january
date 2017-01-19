@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no,maximum-scale=1">
+    <title>任务列表</title>
+    <link rel="stylesheet" href="dist/css/bootstrap.min.css">
+    <script src="dist/js/jquery-1.10.2.min.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+    <!--<link href="//cdn.bootcss.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet">-->
+    <!--<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>-->
+    <!--<script src="//cdn.bootcss.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>-->
+    <script src="js/index.js"></script>
+    <style>
+        ul li {
+            list-style-type: none;
+        }
+
+        .panel-default {
+            border: 0;
+            padding: 0 15px 0 15px;
+        }
+
+        .col-xs-3 {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <div class="col-xs-3">
+                <a class="navbar-brand" href="#">
+                    <span class="glyphicon glyphicon-arrow-left"></span>
+                </a>
+            </div>
+            <div class="col-xs-6 navbar-brand" style="text-align: center">
+                <span class="label" style="font-size: 20px;">任务列表</span>
+            </div>
+            <div class="col-xs-3">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+        </div>
+        <div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="#section1">分享到朋友圈</a></li>
+                    <li><a href="#section2">分享给好友</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</nav>
+
+<div style="margin-top: 60px">
+    <ul id="taskList" class="list-group">
+        <li>
+            <div class="panel panel-default">
+                <div class="panel-body" style="padding: 0">
+                    <a href="./detail.html?taskUrl=http://www.mylike.com&taskId=1">
+                        <img src="img/banner1@2x.png" class="img-responsive" alt="banner1.png">
+                    </a>
+                </div>
+                <div class="panel-footer">任务1</div>
+            </div>
+        </li>
+        <li>
+            <div class="panel panel-default">
+                <div class="panel-body" style="padding: 0">
+                    <a href="./detail.html?taskUrl=http://www.baidu.com&taskId=2">
+                        <img src="img/banner2@2x.png" class="img-responsive" alt="banner2.png">
+                    </a>
+                </div>
+                <div class="panel-footer">任务2</div>
+            </div>
+        </li>
+        <li>
+            <div class="panel panel-default">
+                <div class="panel-body" style="padding: 0">
+                    <a href="./detail.html?taskUrl=http://www.youku.com&taskId=3">
+                        <img src="img/banner3@2x.png" class="img-responsive" alt="banner3.png">
+                    </a>
+                </div>
+                <div class="panel-footer">任务3</div>
+            </div>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
