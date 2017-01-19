@@ -1,6 +1,7 @@
+var taskUrl = getUrlArgObject("taskUrl");
+var taskId = getUrlArgObject("taskId");
+var title = getUrlArgObject("title");
 $(function () {
-    var taskUrl = getParam("taskUrl");
-    var taskId = getParam("taskId");
     var isPass = false;
     var time = setInterval(function () {
         //判断活动是否过期
@@ -22,11 +23,11 @@ $(function () {
         $("#noneTask").show();
     } else { //未过期
         $("iframe").attr("src", taskUrl);
+        $("#taskTitle").text(title)
     }
 });
 
-//根据参数名获得该参数 pname等于想要的参数名
-function getParam(pname) {
+function getUrlArgObject(pname) {
     var params = location.search.substr(1); // 获取参数 平且去掉？
     var ArrParam = params.split('&');
 

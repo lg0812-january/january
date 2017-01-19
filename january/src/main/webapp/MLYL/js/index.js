@@ -1,59 +1,45 @@
-var paramObj = {
-    user_name: "s",
-    user_id: "1234gsjshk"
-};
-var listObj = null;
-$(function () {
-    //跨域请求的demo，请求任务列表数据
-    $.ajax({
-        url: 'http://www.baidu.com?callback=?',
-        type: 'get',
-        dataType: 'jsonp',
-        data: {
-            param: paramObj
-        },
-        success: function (result, status, xhr) {
-            if (result.success) {
-                //jquery 渲染任务列表页面
-            }
-        },
-        error: function (result, status, xhr) {
-            // alert(status)
-        }
-    });
-
-    $.post("/",
-        {
-            user_name: "s",
-            user_id: "1234gsjshk"
-        },
+﻿$(function () {
+    $.get("http://zkh.successinfo.com.cn/january/messionOperation/get_messions",
         function (data, status) {
-            //jquery 渲染任务列表页面
-            if (data.length > 0) {
-                listObj = JSON.parse(JSON.parse(data));
-                if (listObj.Result == true) {
+            console.log(data)
+//alert(typeof data.code);
+            if (data.code == "1001") {
+                if (data.result.length > 0) {
                     var html = '';
-                    if (listObj.ProjectList != null && listObj.ProjectList.length > 0) {
-                        for (var i = 0; i < listObj.ProjectList.length; i++) {
-                            html += '<li>' +
-                                '<div class="panel panel-default">' +
-                                '<div class="panel-body" style="padding: 0">' +
-                                '<a href="./detail.html?taskUrl='+obj.ProjectList[i].taskUrl+'&taskId='+obj.ProjectList[i].taskId+'">' +
-                                '<img src="' + listObj.ProjectList[i].taskImgUrl + '" class="img-responsive" alt="banner1.png">' +
-                                '</a>' +
-                                '</div>' +
-                                '<div class="panel-footer">' + listObj.ProjectList[i].taskName + '</div>' +
-                                '</div>' +
-                                '</li>';
-                        }
-                        $('#taskList').append(html);
-                    } else {
-                        $('#taskList').append();
+                    var obj = data.result;
+                    for (var i = 0; i < data.result.length; i++) {
+                        html += '<li>' +
+                            '<div class="panel panel-default">' +
+                            '<div class="panel-body" style="padding: 0">' +
+                            '<a href="./detail.html?taskUrl=' + data.result[i].mission_href + '&taskId=' + obj[i].messionId + '&title=' + obj[i].title + '">' +
+                            '<img src="img/banner1@2x.png" class="img-responsive">' +
+                            '</a>' +
+                            '</div>' +
+                            '<div class="panel-footer">' +data.result[i].title + '</div>' +
+                            '</div>' +
+                            '</li>';
                     }
+                    $('#taskList').append(html);
                 } else {
-                    alert("无数据");
+                    $('#taskList').append();
                 }
-            } else
-                alert("接口错误");
-        });
+            } else {
+                alert("无数据");
+            }
+        },"json");
 });
+// $.ajax({
+//     url: 'http://zkh.successinfo.com.cn/messionOperation/get_messions',
+//     type: 'get',
+//     dataType: 'jsonp',
+//     data: {
+//     },
+//     success: function (result, status, xhr) {
+//         if (result.success) {
+//             alert(data)
+//         }
+//     },
+//     error: function (result, status, xhr) {
+//         // alert(status)
+//     }
+// });
